@@ -1,12 +1,17 @@
 package org.example
+import com.google.gson.Gson
 
-public class LeitorJson {
+import java.io.File
+fun main() {
+    println("Hello World!")
 
+val restauranteJso= File("/home/wilker/codelab/src/main/restaurante.json").readText()
+    //println(restauranteJso)
+val gson = Gson()
+    val restaurant = gson.fromJson(restauranteJso,Restaurant::class.java)
+    println(restaurant.name)
 
-    fun main() {
-
-
-    }    }
+}
 
 /**
  * Criar uma classe Kotlin representando um objeto restaurante
@@ -20,7 +25,7 @@ public class LeitorJson {
  * NÃO VAMOS INSTANCIAR ESSE OBJETO RESTAURANTE, ou seja, não vamos construir ele na mão, vamos criar um arquivo JSON
  * Esse arquivo vai representar o objeto Restaurante com todos os valores definidos
  *
- * Então eis aqui a tarefa..."Minas Gerais"
+ * Então eis aqui a tarefa...
  * Ler o arquivo .json
  * Chamar o parser de jSOn para criar o objeto restaurante a partir do arquivo json
  * Imprimir o objeto restaurante -> print(restaurante)
